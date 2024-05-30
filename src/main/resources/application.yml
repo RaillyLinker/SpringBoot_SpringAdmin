@@ -6,17 +6,17 @@ spring:
     admin:
       notify:
         mail:
-          to: testReceiver@gmail.com # ???? ??? ??? ?? ??? ??
+          to: testReceiver@gmail.com
   security:
     user:
-      name: adminId # Admin ?? ???
-      password: adminPw # Admin ?? ??
+      name: adminId
+      password: adminPw
 
   mail:
-    host: smtp.gmail.com # SMTP ?? ???
-    port: 587 # SMTP ?? ??
-    username: testSender@gmail.com # SMTP ?? ??? ??? (???)
-    password: fo4weigkugmbct1q # SMTP ?? ??? ???? (? ????)
+    host: smtp.gmail.com
+    port: 587
+    username: testSender@gmail.com
+    password: fo4weigkugmbct1q
     default-encoding: UTF-8
     properties:
       mail:
@@ -26,8 +26,8 @@ spring:
         transport:
           protocol: smtp
         smtp:
-          auth: true # ??? ?? ?? ?? (??? : false)
-          timeout: 5000 # Socket Read Timeout ??(ms) (??? : ???)
+          auth: true
+          timeout: 5000
           starttls:
-            enable: true # StartTLS ??? ?? (??? : false)
+            enable: true
             required: true
