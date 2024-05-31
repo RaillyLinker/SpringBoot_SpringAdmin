@@ -12,6 +12,9 @@ RUN ln -fs /usr/share/zoneinfo/Asia/Seoul /etc/localtime && dpkg-reconfigure -f 
 # OpenJDK 설치 !!!필요한 JDK 버전에 맞는 설치!!!
 RUN apt install -y openjdk-21-jdk
 
-COPY springboot_spring_admin-0.0.1-SNAPSHOT.jar /app/
+COPY ../../build/libs/springboot_spring_admin-0.0.1-SNAPSHOT.jar /app/
+
+# 작업 디렉토리 생성 및 이동
+WORKDIR /app
 
 CMD ["java", "-jar", "/app/springboot_spring_admin-0.0.1-SNAPSHOT.jar"]
