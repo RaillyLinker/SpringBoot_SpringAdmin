@@ -12,21 +12,6 @@ RUN ln -fs /usr/share/zoneinfo/Asia/Seoul /etc/localtime && dpkg-reconfigure -f 
 # OpenJDK 설치 !!!필요한 JDK 버전에 맞는 설치!!!
 RUN apt install -y openjdk-21-jdk
 
-# Git 설치
-RUN apt-get install -y git
+COPY springboot_spring_admin-0.0.1-SNAPSHOT.jar /app/
 
-# 작업 디렉토리 생성 및 이동
-WORKDIR /docker_shared_server
-
-# Git Clone !!!clone 할 Git 경로 설정!!!
-RUN git clone https://github.com/RaillyLinker/SpringBoot_SpringAdmin.git ./spring_admin
-
-# 작업 디렉토리 생성 및 이동
-WORKDIR /docker_shared_server/spring_admin
-
-# Spring Boot 프로젝트 빌드
-RUN chmod +x ./gradlew
-RUN ./gradlew build -x test
-
-# Spring Boot 애플리케이션 실행 !!!자바 프로필 설정 및 jar 파일 경로 설정!!!
-CMD ["java", "-jar", "/docker_shared_server/spring_admin/build/libs/springboot_spring_admin-0.0.1-SNAPSHOT-plain.jar"]
+CMD ["java", "-jar", "/app/springboot_spring_admin-0.0.1-SNAPSHOT.jar"]
